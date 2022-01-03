@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        text-align: center;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="findRabbit">Find a Rabbit!</button><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img class="rabbit" src="./img/rabbit.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+    <img src="./img/carrot.png" /><br />
+
+    <script>
+      const findRabbit = document.querySelector('.findRabbit');
+      const rabbitY = document.querySelector('.rabbit');
+      findRabbit.addEventListener('click', () => {
+        console.log('here is ');
+        // window.scrollTo(0, rabbitY.getClientRects()[0].y);
+        rabbitY.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    </script>
+  </body>
+</html>
