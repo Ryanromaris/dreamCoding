@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .x {
+        width: 100%;
+        height: 1px;
+        position: fixed;
+        background-color: white;
+      }
+      .y {
+        width: 1px;
+        height: 100vh;
+        position: fixed;
+        background-color: white;
+      }
+      .target {
+        position: fixed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="x"></div>
+    <div class="y"></div>
+    <img class="target" src="./target.png" />
+    <script>
+      const x = document.querySelector('.x');
+      const y = document.querySelector('.y');
+      const target = document.querySelector('.target');
+      window.addEventListener('mousemove', (event) => {
+        console.log('change', target.getClientRects()[0]);
+        x.style.top = `${event.clientY}px`;
+        y.style.left = `${event.clientX}px`;
+        target.style.top = `${
+          event.clientY - target.getClientRects()[0].width / 2
+        }px`;
+        target.style.left = `${
+          event.clientX - target.getClientRects()[0].width / 2
+        }px`;
+      });
+    </script>
+  </body>
+</html>

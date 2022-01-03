@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rect {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        border: 1px black solid;
+      }
+      .rect_special {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px black solid;
+      }
+      .move {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="move">scroll 100 px</button>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect_special"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <script>
+      const special = document.querySelector('.rect_special');
+      special.addEventListener('click', (event) => {
+        console.log(special.getBoundingClientRect());
+      });
+      const move = document.querySelector('.move');
+      let y = 0;
+      move.addEventListener('click', (event) => {
+        y = y + 10;
+        window.scrollTo(0, y);
+      });
+    </script>
+  </body>
+</html>
