@@ -1,5 +1,12 @@
 let rootList = document.querySelector('.items');
 let addBtn = document.querySelector('#addBtn');
+
+rootList.addEventListener('click', (e) => {
+  if (e.target.tagName === 'I') {
+    e.target.parentNode.remove();
+  }
+});
+
 addBtn.addEventListener('click', () => {
   let content = document.querySelector('.footer__input');
   if (content.value !== '') {
@@ -11,9 +18,7 @@ addBtn.addEventListener('click', () => {
     thing.append(text);
     let eraseBtn = document.createElement('i');
     eraseBtn.className = 'fas fa-trash-alt eraseBtn';
-    eraseBtn.addEventListener('click', (e) => {
-      e.target.parentNode.remove();
-    });
+
     thing.append(eraseBtn);
 
     rootList.append(thing);
